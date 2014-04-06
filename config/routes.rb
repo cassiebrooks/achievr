@@ -54,4 +54,6 @@ Achievr::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get '/goals' => 'goals#index', :as => 'user_root'
 end
