@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
+gem 'haml'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
