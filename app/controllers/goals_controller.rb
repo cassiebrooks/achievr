@@ -6,6 +6,10 @@ class GoalsController < ApplicationController
     end
   end
 
+  def show
+    @goal = Goal.find(params[:id]).decorate
+  end
+
   def create
     @goal = GoalDecorator.create(:name => params[:name], :description => params[:description])
     respond_to do |format|

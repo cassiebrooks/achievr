@@ -57,6 +57,7 @@ Achievr::Application.routes.draw do
 
   get '/goals' => 'goals#index', :as => 'user_root'
   get '/goals/new' => 'goals#new'
+  get '/goals/:id' => 'goals#show'
 
   get '/home' => 'pages#home'
   get '/about' => 'pages#about'
