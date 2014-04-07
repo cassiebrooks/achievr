@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
+
   def index
-    @goals = GoalDecorator.all(:order => "created_at DESC")
+    @goals = Goal.all.decorate
     respond_to do |format|
       format.html
     end
@@ -10,15 +11,16 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id]).decorate
   end
 
-  def create
-    @goal = GoalDecorator.create(:name => params[:name], :description => params[:description])
-    respond_to do |format|
-      if @goal.save
-        format.html { redirect_to goals_path }
-      else
-        flash[:notice] = "Goal failed to save."
-        format.html { redirect_to goals_path }
-      end
-    end
+  def new
+    @goal = Goal.new.decorate
   end
+
+  def create
+    @goal = Goal.new
+    @goal.name = params[:goal][:name]
+    @goal.description = params[:goal][:description]
+    @goal.save
+    redirect_to goal_path(@goal)
+  end
+
 end
