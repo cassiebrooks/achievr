@@ -55,7 +55,9 @@ Achievr::Application.routes.draw do
   #     resources :products
   #   end
 
-  resources :goals
+  authenticate :user do
+    resources :goals
+  end
 
   get '/home' => 'pages#home'
   get '/about' => 'pages#about'
