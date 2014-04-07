@@ -1,0 +1,10 @@
+%h1 Tasks
+
+= @tasks.each do |t|
+  %h3 name
+  %p= t.name
+
+  %h3 description
+  %p= t.description
+
+  %hr

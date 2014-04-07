@@ -5,7 +5,9 @@ Achievr::Application.routes.draw do
   root 'pages#home'
 
   authenticate :user do
-    resources :goals
+    resources :goals do
+      resources :tasks
+    end
   end
 
   get '/home' => 'pages#home'
