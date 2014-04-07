@@ -1,3 +1,17 @@
+%h3 Sign in
+
+= form_tag session_path(:user) do
+  = text_field_tag 'user[email]'
+  = password_field_tag 'user[password]'
+  %button Sign in
+  = link_to "Forgot your password?", new_password_path(:user)
+
+%hr
+
+%h3 Sign up
+
+%hr
+
 %h1 Welcome to Achievr
 
 %h3 Achievr is a free service that helps you keep track of how close you are to achieving your goals, whether that be getting fit, learning to make websites, or finally turning the garage into that playroom you've always been talking about.
