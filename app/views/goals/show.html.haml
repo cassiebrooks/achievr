@@ -4,3 +4,14 @@
 
 %h3 Name
 %p= @goal.decname
+
+%h3 Description
+%p= @goal.description
+
+%h3 Tasks
+- @goal.tasks.each do |task|
+  %p= task.name
+  %p= task.description
+
+%h3 Completed
+= @goal.percentage
