@@ -1,1 +1,6 @@
 %h1 Goals index
+
+= @goals.each do |g|
+  %p= g.decname
+  %p= g.description
+  %hr
