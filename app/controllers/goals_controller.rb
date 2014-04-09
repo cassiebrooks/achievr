@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-
+  accepts_nested_attributes_for :addresses
 
   def index
     @goals = current_user.goals.decorate
