@@ -12,6 +12,8 @@ class TasksController < ApplicationController
   def create
     @task = @goal.tasks.new(task_params)
     respond_to do |format|
+    p @task
+    puts "LALALALALALALALALALALALALALALALALALALALALALALALALALALALALALLALALA"
       if @task.save
         format.html { redirect_to [@goal, @task], notice: "Task was successfully created."}
       end

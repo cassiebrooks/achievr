@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Goal.new
+    @goal = Goal.new(goal_params)
     @goal.name = params[:goal][:name]
     @goal.description = params[:goal][:description]
     @goal.user_id = current_user.id
@@ -31,6 +31,11 @@ class GoalsController < ApplicationController
     unless current_user.id == params[:user_id]
       redirect_to root_path
     end
+  end
+
+  def goal_params
+    p params.require(:goal).permit(:name, :description, tasks_attribute: [:id, :description, :_destroy])
+    params.require(:goal).permit(:name, :description, tasks_attributes: [:id, :description, :_destroy])
   end
 
 end
