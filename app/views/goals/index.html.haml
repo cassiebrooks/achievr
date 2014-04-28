@@ -5,6 +5,13 @@
   %p= g.description
   %h3 Status
   %p= g.percentage
+  %h3 Tasks
+  %ul
+    - g.tasks.each do |t|
+      %li
+        %p= t.name
+        %p= t.status
+        %hr
   %hr
 
 %br
