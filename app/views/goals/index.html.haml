@@ -1,6 +1,6 @@
 %h1 Goals index
 
-= @goals.each do |g|
+- @goals.each do |g|
   %p= link_to g.decname, goal_path(g)
   %p= g.description
   %h3 Status

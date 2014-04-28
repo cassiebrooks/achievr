@@ -18,8 +18,6 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    @goal.name = params[:goal][:name]
-    @goal.description = params[:goal][:description]
     @goal.user_id = current_user.id
     @goal.save
     redirect_to goal_path(@goal)
