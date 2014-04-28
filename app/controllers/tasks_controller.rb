@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     @task.status = false
     respond_to do |format|
       if @task.save
-        format.html { redirect_to [@goal, @task], notice: "Task was successfully created."}
+        format.html { redirect_to @goal, notice: "Task was successfully created."}
       else
         render :new
       end
