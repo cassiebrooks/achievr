@@ -15,12 +15,27 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to [@goal, @task], notice: "Task was successfully created."}
+      else
+        render :new
       end
     end
   end
 
   def show
     @task = @goal.tasks.find(params[:id])
+  end
+
+  def edit
+    @task = @goal.tasks.find(params[:id])
+  end
+
+  def update
+    @task = @goal.tasks.find(params[:id])
+    if @task.update_attributes(task_params)
+      redirect_to [@goal, @task]
+    else
+      render :edit
+    end
   end
 
   private
@@ -30,6 +45,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :status)
   end
 end
