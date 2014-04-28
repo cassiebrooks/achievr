@@ -1,18 +1,19 @@
 %h1 Goals index
 
 - @goals.each do |g|
-  %p= link_to g.decname, goal_path(g)
-  %p= g.description
-  %h3 Status
-  %p= g.percentage
-  %h3 Tasks
-  %ul
-    - g.tasks.each do |t|
-      %li
-        %p= t.name
-        %p= t.status
-        %hr
-  %hr
+  - if !g.status?
+    %p= link_to g.decname, goal_path(g)
+    %p= g.description
+    %h3 Status
+    %p= g.percentage
+    %h3 Tasks
+    %ul
+      - g.tasks.each do |t|
+        %li
+          %p= t.name
+          %p= t.status
+          %hr
+    %hr
 
 %br
 %br
