@@ -1,0 +1,16 @@
+%h1 Completed goals
+
+- @goals.each do |g|
+  - if g.status?
+    %p= link_to g.decname, goal_path(g)
+    %p= g.description
+    %h3 Status
+    %p= g.percentage
+    %h3 Tasks
+    %ul
+      - g.tasks.each do |t|
+        %li
+          %p= t.name
+          %p= t.status
+          %hr
+    %hr

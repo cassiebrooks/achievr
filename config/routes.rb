@@ -1,9 +1,6 @@
 Achievr::Application.routes.draw do
   devise_for :users
 
-  # You can have the root of your site routed with "root"
-  root 'pages#home'
-
   authenticate :user do
     resources :goals do
       resources :tasks
@@ -13,4 +10,12 @@ Achievr::Application.routes.draw do
   get '/home' => 'pages#home'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
+  get '/completed-goals' => 'goals#completed'
+
+  authenticated :user do
+    root :to => 'goals#index', :as => :authenticated_root
+  end
+
+  root :to => redirect('/home')
+
 end

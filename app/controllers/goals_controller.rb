@@ -8,6 +8,13 @@ class GoalsController < ApplicationController
     end
   end
 
+  def completed
+    @goals = current_user.goals.decorate
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def show
     @goal = Goal.find(params[:id]).decorate
   end
