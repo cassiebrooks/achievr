@@ -12,6 +12,8 @@
 - @goal.tasks.each do |task|
   %p= task.name
   %p= task.description
+  %p= task.status
+  %hr
 
 %h3 Completed
 = @goal.percentage
