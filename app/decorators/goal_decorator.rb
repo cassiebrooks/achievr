@@ -2,6 +2,13 @@ class GoalDecorator < Draper::Decorator
   decorates :goal
   delegate_all
 
+  def tasks_for_index
+    tasks = object.tasks.limit(3)
+    tasks.each do |t|
+      "%p#{t.name}"
+    end
+  end
+
   def decname
     object.name
   end
@@ -16,4 +23,5 @@ class GoalDecorator < Draper::Decorator
 
     "#{(completed_tasks.to_f / object.tasks.count)*100}%"
   end
+
 end

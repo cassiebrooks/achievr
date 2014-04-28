@@ -8,12 +8,7 @@
     %p= g.percentage
     %h3 Tasks
     %ul
-      - g.tasks.each do |t|
-        %li
-          %p= t.name
-          %p= t.status
-          %hr
-    %hr
+      = g.tasks_for_index
 
 %br
 %br
