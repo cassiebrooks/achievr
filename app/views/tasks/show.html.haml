@@ -1,1 +1,15 @@
-%h1 What a lovely task!
+%h1 Task
+
+= link_to '< Back to goal', goal_path
+
+%h3 Name
+%p= @task.name
+
+%h3 Description
+%p= @task.description
+
+
+%h3 Completed ?
+%P= @task.status
+
+= link_to 'Delete task', [@goal, @task], method: :delete

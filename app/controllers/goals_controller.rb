@@ -45,6 +45,11 @@ class GoalsController < ApplicationController
     end
   end
 
+  def destroy
+    Goal.find(params[:id]).destroy
+    redirect_to goals_path
+   end
+
   private
 
   def user_is_current_user
@@ -54,7 +59,6 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    p params.require(:goal).permit(:name, :description, tasks_attribute: [:id, :description, :_destroy])
     params.require(:goal).permit(:name, :description, tasks_attributes: [:id, :description, :_destroy])
   end
 
