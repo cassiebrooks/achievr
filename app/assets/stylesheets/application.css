@@ -13,3 +13,6 @@
  *= require bootstrap.min
  *= require font-awesome
  */
+
+@import "_main.sass";
+@import "_reset.sass";

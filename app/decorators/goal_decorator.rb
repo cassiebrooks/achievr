@@ -2,13 +2,6 @@ class GoalDecorator < Draper::Decorator
   decorates :goal
   delegate_all
 
-  def tasks_for_index
-    tasks = object.tasks.limit(3)
-    tasks.each do |t|
-      "%p#{t.name}"
-    end
-  end
-
   def decname
     object.name
   end

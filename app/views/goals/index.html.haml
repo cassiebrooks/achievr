@@ -1,17 +1,20 @@
 %h1 Goals index
 
 - @goals.each do |g|
+
+
+- if @goals.count == 0
+  %p.no-goals You don't have any goals yet! Click the <span class="plus-sign">+</span> above to get started.
+- if @goals.all? { |elem| elem.status }
+  %p.no-goals Hurray, you've completed all your goals! Click the <span class="plus-sign">+</span> above to create some more.
+
+- @goals.each do |g|
   - if !g.status?
     %p= link_to g.decname, goal_path(g)
     %p= g.description
     %h3 Status
     %p= g.percentage
     %h3 Tasks
-    %ul
-      = g.tasks_for_index
 
-%br
-%br
-%br
-
-= link_to "+ New goal", new_goal_path(@goal)
+<!-- problem with @goals@each loop -->
+<!-- problem with @goals.all? block - see http://www.ruby-doc.org/core-2.1.1/Enumerable.html#method-i-all-3F -->
