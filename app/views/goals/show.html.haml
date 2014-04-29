@@ -6,14 +6,15 @@
 = best_in_place @goal, :name, :type => :input
 
 %h3 Description
-= best_in_place @goal, :name, :type => :textarea
+= best_in_place @goal, :description, :type => :textarea
 
 %h3 Tasks
 - @goal.tasks.each do |task|
 
   %div= best_in_place task, :name, :path => goal_task_path(@goal, task)
   %div= best_in_place task, :description, :path => goal_task_path(@goal, task)
-  %div= best_in_place task, :status, :type => :checkbox, :path => goal_task_path(@goal, task)
+
+  %div= best_in_place task, :status, :type => :checkbox, :collection => [raw("<i class='fa fa-square-o'></i>"), raw("<i class='fa fa-check-square-o'></i>")], :path => goal_task_path(@goal, task)
   %hr
 
 %h3 Completed

@@ -24,7 +24,7 @@ class GoalDecorator < Draper::Decorator
       sum
     end
 
-    "#{(completed_tasks.to_f / object.tasks.count)*100}%"
+    "#{(completed_tasks.to_f / object.tasks.count)*100}".split(".")[0] + "%"
   end
 
   private

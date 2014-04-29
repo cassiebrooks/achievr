@@ -2,7 +2,7 @@
   = f.input :name
   = f.input :description
   #tasks
-    = f.simple_fields_for :tasks do |task|
+    - f.simple_fields_for :tasks do |task|
       = render 'task_fields', :f => task
     
     = link_to_add_association '+ add task', f, :tasks
