@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_filter :load_goal
+  respond_to :html, :json
 
   def index
     @tasks = @goal.tasks.all
@@ -31,11 +32,8 @@ class TasksController < ApplicationController
 
   def update
     @task = @goal.tasks.find(params[:id])
-    if @task.update_attributes(task_params)
-      redirect_to [@goal, @task]
-    else
-      render :edit
-    end
+    @task.update_attributes(task_params)
+    respond_with [@goal, @task]
   end
 
   def destroy
