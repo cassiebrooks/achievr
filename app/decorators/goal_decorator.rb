@@ -16,12 +16,21 @@ class GoalDecorator < Draper::Decorator
   def percentage
     return '0%' if object.tasks.count == 0
 
+    # if object.tasks.count == 0
+      # zero_tasks
+
     completed_tasks = object.tasks.reduce(0) do |sum, task|
       sum += 1 if task.status
       sum
     end
 
     "#{(completed_tasks.to_f / object.tasks.count)*100}%"
+  end
+
+  private
+
+  def zero_tasks
+    # display checkbox: goal achieved?
   end
 
 end

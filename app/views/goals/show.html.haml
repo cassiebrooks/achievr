@@ -3,10 +3,10 @@
 %h1 test
 
 %h3 Name
-%p= @goal.decname
+= best_in_place @goal, :name, :type => :input
 
 %h3 Description
-%p= @goal.description
+= best_in_place @goal, :name, :type => :textarea
 
 %h3 Tasks
 - @goal.tasks.each do |task|

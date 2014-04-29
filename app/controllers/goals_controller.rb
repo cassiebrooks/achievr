@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-
+  respond_to :html, :json
 
   def index
     @goals = current_user.goals.decorate
@@ -38,11 +38,8 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
-    if @goal.update_attributes(goal_params)
-      redirect_to @goal
-    else
-      render :edit
-    end
+    @goal.update_attributes(goal_params)
+    respond_with @goal
   end
 
   def destroy

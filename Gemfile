@@ -13,6 +13,7 @@ gem 'haml'
 gem 'draper'
 gem 'simple_form'
 gem 'cocoon'
+gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
