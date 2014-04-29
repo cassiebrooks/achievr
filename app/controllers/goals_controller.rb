@@ -28,7 +28,7 @@ class GoalsController < ApplicationController
     @goal.user_id = current_user.id
     @goal.status = false
     @goal.save
-    redirect_to goal_path(@goal)
+    respond_with @goal
   end
 
   def edit
@@ -56,7 +56,7 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    params.require(:goal).permit(:name, :description, tasks_attributes: [:id, :description, :_destroy])
+    params.require(:goal).permit(:name, :description, tasks_attributes: [:id, :name, :description, :_destroy])
   end
 
 end

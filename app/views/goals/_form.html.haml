@@ -1,6 +1,6 @@
-= simple_form_for(@goal) do |f|
-  = f.input :name
-  = f.input :description
+= simple_form_for @goal do |f|
+  .form-group= f.input :name
+  .form-group= f.input :description
   #tasks
     - f.simple_fields_for :tasks do |task|
       = render 'task_fields', :f => task
