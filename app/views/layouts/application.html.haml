@@ -6,32 +6,34 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    .top
-    .bar
+    #wrap
+      .top
+      .bar
+        .wrapper
+
+      .circle
+        = link_to image_tag( '/images/achieve-plus.png'), new_goal_path(@goal), :class => 'achieve'
       .wrapper
 
-    .circle
-      = link_to image_tag( '/images/achieve-plus.png'), new_goal_path(@goal), :class => 'achieve'
-    .wrapper
+        %nav
+          %ul
+            - if current_user.present?
+              %li= link_to 'Home', '/goals'
+              %li= link_to 'Completed goals', '/completed-goals'
+            - else
+              %li= link_to 'Home', root_path
+            %li= link_to 'About', '/about'
+            %li= link_to 'Contact', '/contact'
+            %li.hmenu
+              = render 'devise/menu/login_items'
 
-      %nav
-        %ul
-          - if current_user.present?
-            %li= link_to 'Home', '/goals'
-            %li= link_to 'Completed goals', '/completed-goals'
-          - else
-            %li= link_to 'Home', root_path
-          %li= link_to 'About', '/about'
-          %li= link_to 'Contact', '/contact'
-          %li.hmenu
-            = render 'devise/menu/login_items'
+        - if notice
+          %p.alert.alert-success= notice
+        - if alert
+          %p.alert.alert-danger= alert
 
-      - if notice
-        %p.alert.alert-success= notice
-      - if alert
-        %p.alert.alert-danger= alert
-
-      = yield
+        = yield
+    #push
 
   %footer.footer
     .wrapper

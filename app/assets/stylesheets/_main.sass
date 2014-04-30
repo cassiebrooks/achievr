@@ -60,7 +60,6 @@ nav
     margin-top: 7px
 
 footer, .footer
-  height: 40px
   border-top: 10px solid #c24010
   background-color: #2d2b4d
 
@@ -71,5 +70,21 @@ h1
   float: left
   margin-top: 35px
 
+
+
+html, body
+  height: 100%
+
+/* Wrapper for page content to push down footer */
+#wrap
+  min-height: 100%
+  height: auto !important
+  height: 100%
+  /* Negative indent footer by its height */
+  margin-bottom: -120px !important
+
+/* Set the fixed height of the footer here */
+#push, .footer
+  height: 64px
 
 

@@ -1,10 +1,9 @@
 %h1 Goals index
 
-- @goals.each do |g|
-  - if @goals.count == 0
-    %p.no-goals You don't have any goals yet! Click the <span class="plus-sign">+</span> above to get started.
-  - if @goals.all? { |g| g.status? }
-    %p.no-goals Hurray, you've completed all your goals! Click the <span class="plus-sign">+</span> above to create some more.
+- if @goals.count == 0
+  %p.no-goals You don't have any goals yet! Click the <span class="plus-sign">+</span> above to get started.
+- if @goals.all? { |g| g.status? } && @goals.count != 0
+  %p.no-goals Hurray, you've completed all your goals! Click the <span class="plus-sign">+</span> above to create some more.
 
 - @goals.each do |g|
   - if !g.status?
