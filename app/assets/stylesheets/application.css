@@ -14,5 +14,7 @@
  *= require font-awesome
  */
 
-@import "_main.sass";
 @import "_reset.sass";
+@import "_main.sass";
+@import "_not-connected.sass";
+@import "_connected.sass";

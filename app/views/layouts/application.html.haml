@@ -9,7 +9,6 @@
     #wrap
       .top
       .bar
-        .wrapper
 
       .circle
         = link_to image_tag( '/images/achieve-plus.png'), new_goal_path(@goal), :class => 'achieve'
@@ -24,8 +23,7 @@
               %li= link_to 'Home', root_path
             %li= link_to 'About', '/about'
             %li= link_to 'Contact', '/contact'
-            %li.hmenu
-              = render 'devise/menu/login_items'
+            = render 'devise/menu/login_items'
 
         - if notice
           %p.alert.alert-success= notice

@@ -1,6 +1,10 @@
 = simple_form_for @goal do |f|
-  .form-group= f.input :name
-  .form-group= f.input :description
+  .form-controls
+    .form-group
+      = f.input :name, :placeholder => "Goal name (required)", :label => false
+    .form-group
+      = f.input :description, :placeholder => "Goal description", :label => false
+
   #tasks
     - f.simple_fields_for :tasks do |task|
       = render 'task_fields', :f => task
