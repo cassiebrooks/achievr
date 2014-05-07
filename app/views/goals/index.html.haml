@@ -1,14 +1,16 @@
-%h1 Goals index
+.goal-index
+  %h1 Goals to achieve
 
-- if @goals.count == 0
-  %p.no-goals You don't have any goals yet! Click the <span class="plus-sign">+</span> above to get started.
-- if @goals.all? { |g| g.status? } && @goals.count != 0
-  %p.no-goals Hurray, you've completed all your goals! Click the <span class="plus-sign">+</span> above to create some more.
+  - if @goals.count == 0
+    %p.no-goals You don't have any goals yet! Click the <span class="plus-sign">+</span> above to get started.
+  - if @goals.all? { |g| g.status? } && @goals.count != 0
+    %p.no-goals Hurray, you've completed all your goals! Click the <span class="plus-sign">+</span> above to create some more.
 
-- @goals.each do |g|
-  - if !g.status?
-    %p= link_to g.decname, goal_path(g)
-    %p= g.description
-    %h3 Status
-    %p= g.percentage
-    %h3 Tasks
+  - @goals.each do |g|
+    - if !g.status?
+      .goal
+        %h2= link_to g.name, goal_path(g)
+        %p= g.description
+        %h6 Tasks
+        %h6 Status
+        %p= g.percentage
