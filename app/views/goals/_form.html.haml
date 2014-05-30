@@ -8,7 +8,7 @@
   #tasks
     - f.simple_fields_for :tasks do |task|
       = render 'task_fields', :f => task
-    
-    = link_to_add_association '+ add task', f, :tasks
+
+    = link_to_add_association '+ add task', f, :tasks, :class => "link-button"
 
   = f.submit
